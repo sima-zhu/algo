@@ -17,11 +17,16 @@
     - update-users
 
 - name: Sysctl tuning
-  sysctl: name="{{ item.item }}" value="{{ item.value }}"
+  sysctl:
+    name: "{{ item.item }}"
+    value: "{{ item.value }}"
+    sysctl_set: true
   when: item.item
   with_items:
     - "{{ sysctl|default([]) }}"
   tags:
     - always
+
+- fail:
 
 - meta: flush_handlers

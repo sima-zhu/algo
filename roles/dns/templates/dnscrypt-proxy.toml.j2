@@ -38,8 +38,8 @@
 ## Note: When using systemd socket activation, choose an empty set (i.e. [] ).
 
 listen_addresses  = [
-  '{{ local_service_ip }}:53'{% if ipv6_support %},
-  '[{{ local_service_ipv6 }}]:53'{% endif %}
+  '{{ local_service_ip }}:53',
+  '[{{ local_service_ipv6 }}]:53'
   ]
 
 
